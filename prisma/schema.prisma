@@ -15,3 +15,38 @@ model todo {
   text        String    @db.VarChar
   completedAt DateTime? @db.Timestamp()
 }
+
+model audiobook {
+  audiobook_id        Int       @id @default(autoincrement())
+  title               String    @db.VarChar
+  description         String    @db.VarChar
+  url_text_source     String    @db.VarChar
+  language            String?    @db.VarChar
+  copyright_year      String?    @db.VarChar
+  num_sections        String?    @db.VarChar
+  url_rss             String?    @db.VarChar
+  url_zip_file        String?    @db.VarChar
+  url_project         String?    @db.VarChar
+  url_librivox        String?    @db.VarChar
+  url_other           String?    @db.VarChar
+  totaltime           String?    @db.VarChar
+  totaltimesecs       String?    @db.VarChar
+  authors             author[]
+  created_at          DateTime    @default(now())
+  updated_at          DateTime?   @updatedAt
+  deleted_at          DateTime?   @db.Timestamptz
+}
+
+model author {
+  author_id             Int         @id @default(autoincrement())
+  first_name            String?     @db.VarChar
+  last_name             String      @db.VarChar
+  audiobook             audiobook?  @relation(fields: [audiobook_id], references: [audiobook_id])
+  audiobook_id          Int?
+  dob                   String?     @db.VarChar
+  dod                   String?     @db.VarChar
+  country               String?     @db.VarChar
+  created_at            DateTime    @default(now())
+  updated_at            DateTime?   @updatedAt
+  deleted_at            DateTime?   @db.Timestamptz
+}
