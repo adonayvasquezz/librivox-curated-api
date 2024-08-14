@@ -6,9 +6,8 @@ export abstract class AudiobookRepository {
     createAudiobookDto: CreateAudiobookDto
   ): Promise<AudiobookEntity>;
 
-  //todo: paginación
   abstract getAll(): Promise<AudiobookEntity[]>;
-  abstract findById(id: number): Promise<AudiobookEntity>;
-  /* abstract updateById(updateTodoDto: UpdateTodoDto): Promise<AudiobookEntity>; */
-  abstract deleteById(id: number): Promise<AudiobookEntity>;
+  // abstract findById(id: number): Promise<AudiobookEntity>;
+  // abstract updateById(updateTodoDto: UpdateTodoDto): Promise<AudiobookEntity>;
+  // abstract deleteById(id: number): Promise<AudiobookEntity>;
 }

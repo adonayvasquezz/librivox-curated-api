@@ -5,7 +5,7 @@ export class CreateAudiobookDto {
 
   static create(
     props: Partial<AudiobookEntity>
-  ): [string?, CreateAudiobookDto?] {
+  ): [string, undefined] | [undefined, CreateAudiobookDto] {
     const {
       audiobook_id,
       title,
